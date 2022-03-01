@@ -47,4 +47,24 @@ h1 {
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 100%;
+}
+
+.photographer_section article a {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+
+.photographer_section article p {
+    margin: 5px;
+}
+
+
+.prix{
+    color: gray;
+}
+
+.location{
+    color: #901C1C;
 }
