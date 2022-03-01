@@ -1,5 +1,12 @@
     async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
+        fetch('../../data/photographers.json')
+            .then(response => {
+                return response.json();})
+            .then(data => {
+                console.log(data);
+        }).catch(err => {
+            // Do something for an error here
+        });
         const photographers = [
             {
                 "name": "Mimi Keel",

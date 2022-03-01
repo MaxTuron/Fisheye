@@ -19,8 +19,8 @@ function photographerFactory(data) {
         ville.textContent = city+",";
         ville.classList.add("location");
 
-        const pays = document.createElement( 'p' );
-        pays.textContent = country;
+        const pays = document.createElement( 'span' );
+        pays.textContent = " "+country;
         pays.classList.add("location");
 
         const description = document.createElement( 'p' );
@@ -35,7 +35,7 @@ function photographerFactory(data) {
         lien.appendChild(img);
         article.appendChild(nom);
         article.appendChild(ville);
-        article.appendChild(pays);
+        ville.appendChild(pays);
         article.appendChild(description);
         article.appendChild(prix);
         return (article);
