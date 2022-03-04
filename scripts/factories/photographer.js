@@ -10,7 +10,7 @@ function photographerFactory(data) {
         img.setAttribute("src", picture)
 
         const lien = document.createElement( 'a' );
-        lien.setAttribute("href", 'photographers.html?id='+id)
+        lien.setAttribute("href", 'photographer.html?id='+id)
 
         const nom = document.createElement( 'h2' );
         nom.textContent = name;

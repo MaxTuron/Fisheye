@@ -1,6 +1,15 @@
 #contact_modal {
     display: none;
 }
+/*Messages de confirmation */
+#confirm{
+    display: none;
+}
+/*Messages d'erreurs */
+.error{
+    color: red;
+    font-size: small;
+}
 
 .photograph-header {
     background-color: #FAFAFA;
