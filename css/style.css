@@ -61,6 +61,29 @@ h1 {
 }
 
 
+
+.photographer_info article h2 {
+    color: #D3573C;
+    font-size: 36px;
+}
+
+.photographer_info article img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+
+.photographer_info article a {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+
+.photographer_info article p {
+    margin: 5px;
+}
+
+
 .prix{
     color: gray;
 }

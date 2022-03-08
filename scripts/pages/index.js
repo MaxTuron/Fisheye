@@ -1,12 +1,13 @@
-    async function getPhotographers() {
-        fetch('../../data/photographers.json')
-            .then(response => {
-                return response.json();})
-            .then(data => {
-                console.log(data);
-        }).catch(err => {
-            // Do something for an error here
-        });
+async function getPhotographers() {
+    try {
+        const response = await fetch("./data/photographers.json");
+        const data = await response.json();
+        const photographers = await data.photographers;
+        console.log(photographers);
+        return { photographers }; //Retourne les données des photographes [Sous forme d'un tableau {d'objets}]
+    } catch (error) {
+        console.error(error);
+    }
         const photographers = [
             {
                 "name": "Mimi Keel",
@@ -83,6 +84,6 @@
         const { photographers } = await getPhotographers();
         displayData(photographers);
     };
-    
+
     init();
     
