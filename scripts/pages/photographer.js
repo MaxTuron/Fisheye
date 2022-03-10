@@ -1,8 +1,6 @@
 let searchParams = window.location.search;
 let searchParamsId = searchParams.substring(4,window.location.search.length);
 let IDphotographer = parseInt(searchParamsId);
-console.log(IDphotographer);
-console.log(typeof IDphotographer);
 
 async function getPhotographers() {
     const photographers = [
