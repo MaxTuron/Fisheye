@@ -87,8 +87,21 @@ h1 {
 
 .media_section article img {
     height: 400px;
-    width: 400px;
+    width: 100%;
     border-radius: 20px;
+    object-fit: fill;
+}
+
+.media_section article video {
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: fill;
+}
+
+.media_section article h2 {
+    display: flex;
+    justify-content: space-between;
 }
 
 .prix{

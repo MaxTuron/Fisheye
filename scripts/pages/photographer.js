@@ -610,22 +610,26 @@ async function displayData(photographers, media) {
     const photographersSection = document.querySelector(".photographer_info");
     const mediaSection = document.querySelector(".media_section");
 
-        photographers.forEach((photographer) => {
-            if (photographer.id===IDphotographer){
-                const photographerModel = photographerFactory(photographer);
-                const userCardDOM = photographerModel.getUserCardDOM();
-                photographersSection.appendChild(userCardDOM);
-            }
-        });
+    let totalLikes = 0;
+
+    photographers.forEach((photographer) => {
+        if (photographer.id===IDphotographer){
+            const photographerModel = photographerFactory(photographer);
+            const userCardDOM = photographerModel.getUserCardDOM();
+            photographersSection.appendChild(userCardDOM);
+        }
+    });
 
     media.forEach((media) => {
         if (media.photographerId===IDphotographer){
             const mediaModel = mediaFactory(media);
             const mediaCardDOM = mediaModel.getMediaCardDOM();
             mediaSection.appendChild(mediaCardDOM);
+            totalLikes = totalLikes + media.likes;
         }
     });
 
+    console.log(totalLikes)
 };
 
 async function init() {
