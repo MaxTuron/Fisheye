@@ -14,13 +14,25 @@
 
     <main id="main">
         <div class="photograph-header">
-            <div class="photographer_info">
-                <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-            </div>
+            <div class="photographer_info"></div>
+            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        </div>
+
+        <div class="tri_section">
+            <p>Triez par : </p>
+            <select name="tri" class="other_button">
+                <option id="popularity">Popularité</option>
+                <option id="date">Date</option>
+                <option id="title">Titre</option>
+            </select>
         </div>
 
         <div class="media_section"></div>
         <div class="likes_section"></div>
+
+        <div class="photographer_box">
+            <p class="totalLikes"></p>
+        </div>
 
     </main>
     <div id="contact_modal">
@@ -53,7 +65,7 @@
                     <input class="text-control" type="text" id="message" name="message" /><br>
                     <span id="messageError" class="error"></span>
                 </div>
-                <button class="contact_button">Envoyer</button>
+                <button class="other_button">Envoyer</button>
             </form>
         </div>
     </div>
@@ -71,6 +83,7 @@
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
 
   </body>
 </html>

@@ -72,9 +72,20 @@ h1 {
 
 
 .photographer_info article img {
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
     border-radius: 100%;
+}
+
+.photographer_box{
+    width: 31%;
+    background-color: #D3573C;
+    height: 5%;
+    position: fixed;
+    bottom: 0px;
+    right: 5%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 
@@ -104,6 +115,12 @@ h1 {
     justify-content: space-between;
 }
 
+.tri_section{
+    display: flex;
+    flex-direction: row;
+    margin: 50px 100px;
+}
+
 .prix{
     color: gray;
 }
@@ -120,4 +137,21 @@ h1 {
     height: 20px !important;
     width: 20px !important;
     border-radius: 0 !important;
+}
+
+
+.img-galerie {
+    cursor: pointer;
+}
+
+.img-galerie:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.totalLikes{
+    position: fixed;
+    bottom: -3.5%;
+    right: 30%;
+    font-size: xx-large;
 }

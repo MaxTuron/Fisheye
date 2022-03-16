@@ -7,6 +7,7 @@ function mediaFactory(data) {
         const videos = `assets/video/${video}`;
 
         const article = document.createElement( 'article' );
+
         if (image===undefined) {
             article.innerHTML = ` 
              <video controls>
@@ -20,12 +21,12 @@ function mediaFactory(data) {
         `;
         }else{
             article.innerHTML = ` 
-             <img src="${picture}">
+             <img src="${picture}" class="img-galerie">
              <h2 class="titre_media">${title}
                 <span>${likes}
                     <img src="${coeur}" class="img_coeur">
                 </span>
-             </h2>
+             </h2> 
         `;
         }
         return (article);

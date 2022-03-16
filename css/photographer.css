@@ -1,5 +1,10 @@
 #contact_modal {
     display: none;
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    padding-top: 88px;
 }
 /*Messages de confirmation */
 #confirm{
@@ -19,6 +24,23 @@
 
 
 .contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    right: 41%;
+    position: absolute;
+}
+
+.other_button{
     font-size: 20px;
     font-weight: bold;
     color: white;
