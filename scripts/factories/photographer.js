@@ -44,7 +44,7 @@ function photographerInfosFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.innerHTML = `
-        <h2> ${name}</h2>
+        <h1> ${name}</h1>
         <p class="location"> ${city} 
             <span class="location">${country}</span> 
         </p>

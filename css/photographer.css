@@ -15,6 +15,36 @@
     color: red;
     font-size: small;
 }
+/* Infos du photographes de la page personnelle (nom, lieux, description et photo)*/
+.photographer_info{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.photographer_info article img {
+    height: 180px;
+    width: 180px;
+    border-radius: 100%;
+    margin: 15px 15px 15px 0;
+}
+
+.photographer_info article {
+    padding: 0 0 0 47px;
+}
+
+.photographer_info article h1 {
+    color: #DB8876;
+    font-size: xxx-large;
+    margin: 42px 0 0 0;
+}
+
+.photographer_info article p {
+    color: darkgrey;
+}
 
 .contact_button {
     font-size: 20px;

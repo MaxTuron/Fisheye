@@ -36,6 +36,8 @@ async function displayData(photographers, media) {
     let compteurLikes = 0;
     let prixPhotographe = 0;
 
+    photographersSection.innerHTML=`<button class="contact_button" onclick="displayModal()">Contactez-moi</button>`;
+
     photographers.forEach((photographer) => {
         if (photographer.id===IDphotographer){
             const photographerModel = photographerInfosFactory(photographer);

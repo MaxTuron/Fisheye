@@ -24,19 +24,14 @@ h1 {
     margin-left: 100px;
 }
 
+/* Header global */
 .photograph-header {
     background-color: #FAFAFA;
     margin: 0 100px;
     display: flex;
 }
 
-.photograph-header article {
-
-}
-
-.photograph-header h2 {
-    color: #DB8876;
-}
+/* Infos du photographes de la page globale (nom, lieux, description et photo)*/
 
 .photographer_section {
     display: grid;
@@ -72,28 +67,6 @@ h1 {
 
 .photographer_section article p {
     margin: 5px;
-}
-
-
-.photographer_info{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    border-radius: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-
-.photographer_info article img {
-    height: 180px;
-    width: 180px;
-    border-radius: 100%;
-}
-
-.photographer_info article a {
-    display: flex;
-    justify-content: flex-end;
 }
 
 
@@ -134,7 +107,7 @@ h1 {
 }
 
 .location{
-    color: #901C1C;
+    color: #901C1C !important;
 }
 
 .titre_media{
