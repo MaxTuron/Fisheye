@@ -24,6 +24,20 @@ h1 {
     margin-left: 100px;
 }
 
+.photograph-header {
+    background-color: #FAFAFA;
+    margin: 0 100px;
+    display: flex;
+}
+
+.photograph-header article {
+
+}
+
+.photograph-header h2 {
+    color: #DB8876;
+}
+
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -66,8 +80,8 @@ h1 {
     height: 100%;
     width: 100%;
     border-radius: 100%;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
@@ -77,15 +91,9 @@ h1 {
     border-radius: 100%;
 }
 
-.photographer_box{
-    width: 31%;
-    background-color: #D3573C;
-    height: 5%;
-    position: fixed;
-    bottom: 0px;
-    right: 5%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+.photographer_info article a {
+    display: flex;
+    justify-content: flex-end;
 }
 
 
@@ -149,9 +157,20 @@ h1 {
     transform: scale(1.1);
 }
 
-.totalLikes{
+.spanLikes{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.photographer_box{
+    width: 25%;
+    background-color: #D3573C;
     position: fixed;
-    bottom: -3.5%;
-    right: 30%;
-    font-size: xx-large;
+    bottom: 0px;
+    right: 5%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    justify-content: space-around;
 }

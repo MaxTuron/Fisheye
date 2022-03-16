@@ -2,7 +2,7 @@
     display: none;
     background: rgba(0, 0, 0, 0.2);
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0%;
     padding-top: 88px;
 }
@@ -15,13 +15,6 @@
     color: red;
     font-size: small;
 }
-
-.photograph-header {
-    display: flex;
-    background-color: #FAFAFA;
-    margin: 0 100px;
-}
-
 
 .contact_button {
     font-size: 20px;
@@ -38,6 +31,10 @@
     align-self: center;
     right: 41%;
     position: absolute;
+}
+
+.contact_button:hover {
+    background-color: #DB8876;
 }
 
 .other_button{
