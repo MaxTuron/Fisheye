@@ -135,6 +135,9 @@ h1 {
     justify-content: flex-start;
     align-items: center;
 }
+.LikesMedia{
+    cursor: pointer;
+}
 
 .photographer_box{
     width: 25%;

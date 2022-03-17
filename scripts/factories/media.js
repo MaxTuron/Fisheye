@@ -1,10 +1,12 @@
 function mediaFactory(data) {
-    const { title,likes,image,video } = data;
+    const { title,id,likes,image,video } = data;
 
     function getMediaCardDOM() {
         const picture = `assets/images/${image}`;
         const coeur = `assets/icons/coeur.svg`;
         const videos = `assets/video/${video}`;
+        const mediaID = data.id
+        const mediaLikes = data.likes
 
         const article = document.createElement( 'article' );
 
@@ -15,21 +17,28 @@ function mediaFactory(data) {
              </video>
              <h2 class="titre_media">${title}
                 <span>${likes}
-                    <img src="${coeur}" class="img_coeur">
+                    <img src="${coeur}" class="img_coeur LikesMedia">
                 </span>
              </h2>
         `;
         }else{
             article.innerHTML = ` 
-             <img src="${picture}" class="img-galerie">
+             <a href="#${mediaID}">
+    <img class="thumb" src="${picture}">
+</a>
+
+<div class="lightbox" id="${mediaID}">
+    <a href="#_" class="btn-close">X</a>
+    <img src="${picture}">
+</div>
              <h2 class="titre_media">${title}
-                <span>${likes}
+                <button class="addLikes" onclick="addLike(${mediaID}, ${mediaLikes})">${likes}
                     <img src="${coeur}" class="img_coeur">
-                </span>
-             </h2> 
+                </button>
+             </h2>      
         `;
         }
         return (article);
     }
-    return { title,likes,image,video, getMediaCardDOM }
+    return { title,id,likes,image,video, getMediaCardDOM }
 }
