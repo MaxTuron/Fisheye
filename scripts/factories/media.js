@@ -24,7 +24,7 @@ function mediaFactory(data) {
         }else{
             article.innerHTML = ` 
              <a href="#${mediaID}">
-    <img class="thumb" src="${picture}">
+        <img class="thumb" src="${picture}">
 </a>
 
 <div class="lightbox" id="${mediaID}">
