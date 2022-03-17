@@ -96,25 +96,25 @@ h1 {
     justify-content: space-between;
 }
 
-.tri_section{
+.tri_section {
     display: flex;
     flex-direction: row;
     margin: 50px 100px;
 }
 
-.prix{
+.prix {
     color: gray;
 }
 
-.location{
+.location {
     color: #901C1C !important;
 }
 
-.titre_media{
+.titre_media {
     color: #901C1C;
 }
 
-.img_coeur{
+.img_coeur {
     height: 20px !important;
     width: 20px !important;
     border-radius: 0 !important;
@@ -125,21 +125,22 @@ h1 {
     cursor: pointer;
 }
 
-.img-galerie:hover{
+.img-galerie:hover {
     transition: all 0.3s ease-in-out;
     transform: scale(1.1);
 }
 
-.spanLikes{
+.spanLikes {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.LikesMedia{
+
+.LikesMedia {
     cursor: pointer;
 }
 
-.photographer_box{
+.photographer_box {
     width: 25%;
     background-color: #D3573C;
     position: fixed;

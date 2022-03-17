@@ -7,17 +7,20 @@
     padding-top: 88px;
     height: 100%;
 }
+
 /*Messages de confirmation */
-#confirm{
+#confirm {
     display: none;
 }
+
 /*Messages d'erreurs */
-.error{
+.error {
     color: red;
     font-size: small;
 }
+
 /* Infos du photographes de la page personnelle (nom, lieux, description et photo)*/
-.photographer_info{
+.photographer_info {
     display: flex;
     height: 100%;
     width: 100%;
@@ -68,7 +71,7 @@
     background-color: #DB8876;
 }
 
-.other_button{
+.other_button {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -136,10 +139,6 @@ form input {
 }
 
 
-
-
-
-
 a {
     text-decoration: none;
 }
@@ -155,12 +154,14 @@ a {
     background: rgba(0, 0, 0, 0.8);
     opacity: 0;
 }
+
 .lightbox img {
     max-width: 90%;
     max-height: 80%;
     margin-top: 2%;
     opacity: 0;
 }
+
 .lightbox:target {
     outline: none;
     width: 100%;
@@ -168,12 +169,14 @@ a {
     opacity: 1 !important;
 
 }
+
 .lightbox:target img {
     border: solid 17px white;
     opacity: 1;
     webkit-transition: opacity 0.6s;
     transition: opacity 0.6s;
 }
+
 .light-btn {
     color: #fafafa;
     background-color: #333;
@@ -191,6 +194,7 @@ a {
 .light-btn:hover {
     background-color: #111;
 }
+
 .btn-close {
     position: absolute;
     right: 2%;
@@ -202,6 +206,7 @@ a {
     border-radius: 1px;
     text-decoration: none;
 }
+
 .btn-close:hover {
     background-color: #740404;
 }

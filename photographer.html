@@ -1,80 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+<head>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-        <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
-    </header>
+</head>
+<body>
+<header>
+    <a href="index.html"><img src="assets/images/logo.png" class="logo"/></a>
+</header>
 
-    <main id="main">
-        <div class="photograph-header">
-            <div class="photographer_info">
-            </div>
-        </div>
-        <div class="tri_section">
-            <p>Triez par : </p>
-            <select name="tri" class="other_button">
-                <option id="popularity">Popularité</option>
-                <option id="date">Date</option>
-                <option id="title">Titre</option>
-            </select>
-        </div>
-
-        <div class="media_section"></div>
-        <div class="likes_section"></div>
-
-        <div class="photographer_box">
-            <span class="spanLikes"> <p class="totalLikes"></p> <img src="assets/icons/coeurNoir.svg" class="img_coeur coeurPhotographer"></span>
-            <p class="prixPhoto"></p>
-        </div>
-
-    </main>
-    <div id="contact_modal">
-        <div class="modal">
-            <header>
-            <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()" />
-            </header>
-            <form name="reserve" action="index.html" id="form" method="get" onsubmit="return validate();">
-
-                <div class="formData">
-                    <label>Prénom</label><br>
-                    <input class="text-control" type="text" id="first" name="first" /><br>
-                    <span id="firstNameError" class="error"></span>
-                </div>
-
-                <div class="formData">
-                    <label>Nom</label><br>
-                    <input class="text-control" type="text" id="last" name="last" /><br>
-                    <span id="lastNameError" class="error"></span>
-                </div>
-
-                <div class="formData">
-                    <label>E-mail</label><br>
-                    <input class="text-control" type="email" id="email" name="email"/><br>
-                    <span id="emailError" class="error"></span>
-                </div>
-                <div>
-                    <label>Votre message</label>
-                    <input class="text-control" type="text" id="message" name="message" /><br>
-                    <span id="messageError" class="error"></span>
-                </div>
-                <button class="other_button">Envoyer</button>
-            </form>
+<main id="main">
+    <div class="photograph-header">
+        <div class="photographer_info">
         </div>
     </div>
+    <div class="tri_section">
+        <p>Triez par : </p>
+        <select name="tri" class="other_button">
+            <option id="popularity">Popularité</option>
+            <option id="date">Date</option>
+            <option id="title">Titre</option>
+        </select>
+    </div>
 
-    <script src="scripts/factories/photographer.js"></script>
-    <script src="scripts/factories/media.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
-    <script src="scripts/utils/lightbox.js"></script>
+    <div class="media_section"></div>
+    <div class="likes_section"></div>
 
-  </body>
+    <div class="photographer_box">
+        <span class="spanLikes"> <p class="totalLikes"></p> <img src="assets/icons/coeurNoir.svg"
+                                                                 class="img_coeur coeurPhotographer"></span>
+        <p class="prixPhoto"></p>
+    </div>
+
+</main>
+<div id="contact_modal">
+    <div class="modal">
+        <header>
+            <h2>Contactez-moi</h2>
+            <img src="assets/icons/close.svg" onclick="closeModal()"/>
+        </header>
+        <form name="reserve" action="index.html" id="form" method="get" onsubmit="return validate();">
+
+            <div class="formData">
+                <label>Prénom</label><br>
+                <input class="text-control" type="text" id="first" name="first"/><br>
+                <span id="firstNameError" class="error"></span>
+            </div>
+
+            <div class="formData">
+                <label>Nom</label><br>
+                <input class="text-control" type="text" id="last" name="last"/><br>
+                <span id="lastNameError" class="error"></span>
+            </div>
+
+            <div class="formData">
+                <label>E-mail</label><br>
+                <input class="text-control" type="email" id="email" name="email"/><br>
+                <span id="emailError" class="error"></span>
+            </div>
+            <div>
+                <label>Votre message</label>
+                <input class="text-control" type="text" id="message" name="message"/><br>
+                <span id="messageError" class="error"></span>
+            </div>
+            <button class="other_button">Envoyer</button>
+        </form>
+    </div>
+</div>
+
+<script src="scripts/factories/photographer.js"></script>
+<script src="scripts/factories/media.js"></script>
+<script src="scripts/pages/photographer.js"></script>
+<script src="scripts/utils/contactForm.js"></script>
+<script src="scripts/utils/lightbox.js"></script>
+
+</body>
 </html>

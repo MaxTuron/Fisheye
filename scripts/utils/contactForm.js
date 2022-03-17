@@ -3,12 +3,12 @@ const modal = document.getElementById("contact_modal");
 const modalMessage = document.getElementById("confirm");
 
 //Empeche l'envoie du formulaire
-form.addEventListener('submit', function(event){
+form.addEventListener('submit', function (event) {
     event.preventDefault()
 });
 
 //Affiche le message de confirmation
-function modalMessageLaunch(){
+function modalMessageLaunch() {
     modalMessage.style.display = "block";
 }
 
@@ -23,7 +23,6 @@ function displayModal() {
 function closeModal() {
     modal.style.display = "none";
 }
-
 
 
 function validate() {
@@ -50,49 +49,49 @@ function validate() {
         messageValid = false;
 
 //Gestion du prénom
-    if(firstName.length<2 && firstName.length !== 0 ){
+    if (firstName.length < 2 && firstName.length !== 0) {
         firstNameError.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-    }else if (firstName.length===0) {
+    } else if (firstName.length === 0) {
         firstNameError.innerHTML = "Vous devez écrire votre prénom.";
-    }else if(firstRegex===true){
+    } else if (firstRegex === true) {
         firstNameError.innerHTML = "Le prénom ne doit pas contenir de nombres.";
-    }else{
+    } else {
         firstNameValid = true;
         firstNameError.innerHTML = "";
     }
 
 //Gestion du nom
-    if(lastName.length<2 && lastName.length !== 0){
+    if (lastName.length < 2 && lastName.length !== 0) {
         lastNameError.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-    }else if (lastName==="") {
+    } else if (lastName === "") {
         lastNameError.innerHTML = "Vous devez écrire votre nom.";
-    }else if(lastRegex===true){
+    } else if (lastRegex === true) {
         lastNameError.innerHTML = "Le nom ne doit pas contenir de nombres.";
-    }else{
+    } else {
         lastNameValid = true;
         lastNameError.innerHTML = "";
     }
 
 //Gestion de l'email
-    if (email==="") {
+    if (email === "") {
         emailError.innerHTML = "Vous devez remplir ce champ.";
-    }else if(emailRegex===false){
+    } else if (emailRegex === false) {
         emailError.innerHTML = "Vous devez remplir une adresse email valide.";
-    }else{
+    } else {
         emailValid = true;
         emailError.innerHTML = "";
     }
 
     //Gestion de la date de naissance
-    if (message==="") {
+    if (message === "") {
         messageError.innerHTML = "Vous devez entrer un message.";
-    }else {
+    } else {
         messageValid = true;
         messageError.innerHTML = "";
     }
 
     //Verification finale de tous les champs
-    if(firstNameValid && lastNameValid && emailValid && messageValid){
+    if (firstNameValid && lastNameValid && emailValid && messageValid) {
         closeModal();
         modalMessageLaunch();
         reset();

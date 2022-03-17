@@ -1,5 +1,5 @@
 function mediaFactory(data) {
-    const { title,id,likes,image,video } = data;
+    const {title, id, likes, image, video} = data;
 
     function getMediaCardDOM() {
         const picture = `assets/images/${image}`;
@@ -8,9 +8,9 @@ function mediaFactory(data) {
         const mediaID = data.id
         const mediaLikes = data.likes
 
-        const article = document.createElement( 'article' );
+        const article = document.createElement('article');
 
-        if (image===undefined) {
+        if (image === undefined) {
             article.innerHTML = ` 
              <video controls>
                 <source src="${videos}" type="video/mp4">
@@ -21,7 +21,7 @@ function mediaFactory(data) {
                 </span>
              </h2>
         `;
-        }else{
+        } else {
             article.innerHTML = ` 
              <a href="#${mediaID}">
         <img class="thumb" src="${picture}">
@@ -40,5 +40,6 @@ function mediaFactory(data) {
         }
         return (article);
     }
-    return { title,id,likes,image,video, getMediaCardDOM }
+
+    return {title, id, likes, image, video, getMediaCardDOM}
 }

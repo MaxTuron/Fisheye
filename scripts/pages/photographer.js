@@ -1,5 +1,5 @@
 let searchParams = window.location.search;
-let searchParamsId = searchParams.substring(4,window.location.search.length);
+let searchParamsId = searchParams.substring(4, window.location.search.length);
 let IDphotographer = parseInt(searchParamsId);
 
 async function getPhotographers() {
@@ -7,7 +7,7 @@ async function getPhotographers() {
         const response = await fetch("./data/photographers.json");
         const data = await response.json();
         const photographers = await data.photographers;
-        return { photographers }; //Retourne les données des photographes [Sous forme d'un tableau {d'objets}]
+        return {photographers}; //Retourne les données des photographes [Sous forme d'un tableau {d'objets}]
     } catch (error) {
         console.error(error);
     }
@@ -34,10 +34,10 @@ async function displayData(photographers, media) {
     let compteurLikes = 0;
     let prixPhotographe = 0;
 
-    photographersSection.innerHTML=`<button class="contact_button" onclick="displayModal()">Contactez-moi</button>`;
+    photographersSection.innerHTML = `<button class="contact_button" onclick="displayModal()">Contactez-moi</button>`;
 
     photographers.forEach((photographer) => {
-        if (photographer.id===IDphotographer){
+        if (photographer.id === IDphotographer) {
             const photographerModel = photographerInfosFactory(photographer);
             const photographerModelPhoto = photographerPhotoFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
@@ -49,7 +49,7 @@ async function displayData(photographers, media) {
     });
 
     media.forEach((medias) => {
-        if (medias.photographerId===IDphotographer){
+        if (medias.photographerId === IDphotographer) {
             const mediaModel = mediaFactory(medias);
             const mediaCardDOM = mediaModel.getMediaCardDOM();
             mediaSection.appendChild(mediaCardDOM);
@@ -57,8 +57,8 @@ async function displayData(photographers, media) {
         }
     });
     console.log(compteurLikes)
-    totalLikes.innerHTML=compteurLikes;
-    prix.innerHTML=prixPhotographe+"€/jour";
+    totalLikes.innerHTML = compteurLikes;
+    prix.innerHTML = prixPhotographe + "€/jour";
 };
 
 async function addLike(id, likes) {
@@ -66,24 +66,24 @@ async function addLike(id, likes) {
     const mediaLikes = document.querySelectorAll(".addLikes");
     const totalLikes = document.querySelector(".totalLikes");
 
-    const compteur= mediaLikes[0].innerHTML;
+    const compteur = mediaLikes[0].innerHTML;
     const compteurTotal = totalLikes.innerHTML;
 
     let newcompteur = parseInt(compteur);
     let newcompteurTotal = parseInt(compteurTotal);
 
-    newcompteur = newcompteur+1;
-    newcompteurTotal = newcompteurTotal+1;
+    newcompteur = newcompteur + 1;
+    newcompteurTotal = newcompteurTotal + 1;
 
-    mediaLikes.innerHTML=newcompteur;
-    totalLikes.innerHTML=newcompteurTotal;
+    mediaLikes.innerHTML = newcompteur;
+    totalLikes.innerHTML = newcompteurTotal;
 
 };
 
 async function init() {
     // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
-    const { media } = await getMedia();
+    const {photographers} = await getPhotographers();
+    const {media} = await getMedia();
     displayData(photographers, media);
 
 };
