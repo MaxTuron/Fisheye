@@ -17,23 +17,23 @@ function mediaFactory(data) {
              </video>
              <h2 class="titre_media">${title}
                 <span>${likes}
-                    <img src="${coeur}" class="img_coeur LikesMedia">
+                    <img src="${coeur}" alt="" class="img_coeur LikesMedia">
                 </span>
              </h2>
         `;
         } else {
             article.innerHTML = ` 
              <a href="#${mediaID}">
-        <img class="thumb" src="${picture}">
+        <img class="thumb" alt="" src="${picture}">
 </a>
 
 <div class="lightbox" id="${mediaID}">
     <a href="#_" class="btn-close">X</a>
-    <img src="${picture}">
+    <img src="${picture}" alt="">
 </div>
              <h2 class="titre_media">${title}
                 <button class="addLikes" onclick="addLike(${mediaID}, ${mediaLikes})">${likes}
-                    <img src="${coeur}" class="img_coeur">
+                    <img src="${coeur}" alt="" class="img_coeur">
                 </button>
              </h2>      
         `;
