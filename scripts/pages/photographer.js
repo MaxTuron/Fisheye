@@ -61,23 +61,28 @@ async function displayData(photographers, media) {
     prix.innerHTML = prixPhotographe + "€/jour";
 };
 
-async function addLike(id, likes) {
+async function addLike(id) {
+    const {media} = await getMedia();
 
-    const mediaLikes = document.querySelectorAll(".addLikes");
+    const mediaID = id;
+
     const totalLikes = document.querySelector(".totalLikes");
+    const mediaLikes = document.querySelector("[data-id=" + CSS.escape(mediaID) + "]");
 
-    const compteur = mediaLikes[0].innerHTML;
-    const compteurTotal = totalLikes.innerHTML;
+    let compteurTotal = totalLikes.innerHTML;
+    let compteurMedia = mediaLikes.innerHTML;
 
-    let newcompteur = parseInt(compteur);
     let newcompteurTotal = parseInt(compteurTotal);
+    let newcompteurMedia = parseInt(compteurMedia);
 
-    newcompteur = newcompteur + 1;
-    newcompteurTotal = newcompteurTotal + 1;
-
-    mediaLikes.innerHTML = newcompteur;
-    totalLikes.innerHTML = newcompteurTotal;
-
+    media.forEach((medias) => {
+        if (medias.id === id) {
+            newcompteurTotal = newcompteurTotal + 1;
+            newcompteurMedia = newcompteurMedia + 1;
+            totalLikes.innerHTML = newcompteurTotal;
+            mediaLikes.innerHTML = newcompteurMedia;
+        }
+    });
 };
 
 async function init() {

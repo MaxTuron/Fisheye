@@ -16,9 +16,8 @@ function mediaFactory(data) {
                 <source src="${videos}" type="video/mp4">
              </video>
              <h2 class="titre_media">${title}
-                <span>${likes}
-                    <img src="${coeur}" alt="" class="img_coeur LikesMedia">
-                </span>
+                <button class="addLikes" data-id="${id}" onclick="addLike(${mediaID})">${likes}</button>
+                <img src="${coeur}" alt="" class="img_coeur LikesMedia">
              </h2>
         `;
         } else {
@@ -32,9 +31,8 @@ function mediaFactory(data) {
     <img src="${picture}" alt="">
 </div>
              <h2 class="titre_media">${title}
-                <button class="addLikes" onclick="addLike(${mediaID}, ${mediaLikes})">${likes}
-                    <img src="${coeur}" alt="" class="img_coeur">
-                </button>
+                <button class="addLikes" data-id="${id}" onclick="addLike(${mediaID})">${likes}</button>
+                 <img src="${coeur}" alt="" class="img_coeur">
              </h2>      
         `;
         }
