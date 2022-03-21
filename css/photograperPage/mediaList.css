@@ -1,0 +1,57 @@
+
+
+.media_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin: 50px 100px;
+}
+
+.media_section article img {
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: fill;
+}
+
+.media_section article video {
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: fill;
+}
+
+.media_section article h2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titre_media {
+    color: #901C1C;
+}
+
+.img_coeur {
+    height: 20px !important;
+    width: 20px !important;
+    border-radius: 0 !important;
+}
+
+
+.img-galerie {
+    cursor: pointer;
+}
+
+.img-galerie:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.spanLikes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.LikesMedia {
+    cursor: pointer;
+}

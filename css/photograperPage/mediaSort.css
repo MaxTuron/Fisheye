@@ -1,0 +1,5 @@
+.tri_section {
+    display: flex;
+    flex-direction: row;
+    margin: 50px 100px;
+}
