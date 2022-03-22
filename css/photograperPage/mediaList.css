@@ -1,5 +1,3 @@
-
-
 .media_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -7,21 +5,21 @@
     margin: 50px 100px;
 }
 
-.media_section article img {
+.media_section div img {
     height: 400px;
     width: 100%;
     border-radius: 20px;
     object-fit: fill;
 }
 
-.media_section article video {
+.media_section div video {
     height: 400px;
     width: 100%;
     border-radius: 20px;
     object-fit: fill;
 }
 
-.media_section article h2 {
+.media_section div h2 {
     display: flex;
     justify-content: space-between;
 }
@@ -54,4 +52,14 @@
 
 .LikesMedia {
     cursor: pointer;
+}
+
+.addLikes{
+    font-size: smaller;
+    background-color: white;
+    border: none;
+    color: #901C1C;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }

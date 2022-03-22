@@ -19,7 +19,7 @@
     font-size: small;
 }
 
-.modal {
+.modal_message {
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
@@ -31,16 +31,16 @@
     margin: auto;
 }
 
-.modal header {
+.modal_message header {
     justify-content: space-between;
     width: 100%;
 }
 
-.modal header img {
+.modal_message header img {
     cursor: pointer;
 }
 
-.modal header h2 {
+.modal_message header h2 {
     font-size: 64px;
     font-weight: normal;
     text-align: center;

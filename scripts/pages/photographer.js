@@ -45,7 +45,7 @@ async function displayHeader(photographers) {
         }
     });
     prix.innerHTML = prixPhotographe + "€/jour";
-};
+}
 
 async function displayMedia(media) {
     let mediaSection = document.querySelector(".media_section");
@@ -54,20 +54,21 @@ async function displayMedia(media) {
     let compteurLikes = 0;
     let numeroPhoto =0;
 
-
     media.forEach((medias) => {
         if (medias.photographerId === IDphotographer) {
             numeroPhoto = numeroPhoto +1;
             let mediaModel = mediaFactory(medias, numeroPhoto);
+
             let mediaCardDOM = mediaModel.getMediaCardDOM();
+
             mediaSection.appendChild(mediaCardDOM);
+
             compteurLikes = compteurLikes + medias.likes;
         }
     });
-    console.log(compteurLikes)
     totalLikes.innerHTML = compteurLikes;
 
-};
+}
 
 async function addLike(id) {
     let {media} = await getMedia();
@@ -89,7 +90,7 @@ async function addLike(id) {
             mediaLikes.innerHTML = newcompteurMedia;
         }
     });
-};
+}
 
 async function init() {
     // Récupère les datas des photographes
@@ -97,7 +98,6 @@ async function init() {
     let {media} = await getMedia();
     displayHeader(photographers);
     displayMedia(media);
-
-};
+}
 
 init();

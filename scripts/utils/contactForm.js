@@ -1,20 +1,11 @@
 const form = document.getElementById('form');
 const modal = document.getElementById("contact_modal");
-const modalMessage = document.getElementById("confirm");
 
 //Empeche l'envoie du formulaire
 form.addEventListener('submit', function (event) {
     event.preventDefault()
 });
 
-//Affiche le message de confirmation
-function modalMessageLaunch() {
-    modalMessage.style.display = "block";
-}
-
-function closeModalMessage() {
-    modalMessage.style.display = "none";
-}
 
 function displayModal() {
     modal.style.display = "block";
@@ -93,7 +84,6 @@ function validate() {
     //Verification finale de tous les champs
     if (firstNameValid && lastNameValid && emailValid && messageValid) {
         closeModal();
-        modalMessageLaunch();
         reset();
     }
 }

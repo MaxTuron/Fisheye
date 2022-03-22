@@ -7,7 +7,7 @@ function photographerFactory(data) {
         const article = document.createElement('article');
         article.innerHTML = `
         <a href="photographer.html?id=${id}">
-            <img src="${picture}">
+            <img src="${picture}" alt="photoProfil${name}">
         </a>
         <h2> ${name}</h2>
         <p class="location"> ${city} 
@@ -31,7 +31,7 @@ function photographerPhotoFactory(data) {
     function getUserCardDOMPhoto() {
         const article = document.createElement('article');
         article.innerHTML = `
-            <img src="${picture}">
+            <img src="${picture}" alt="">
         `;
 
         return (article);
@@ -46,7 +46,7 @@ function photographerInfosFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement('article');
         article.innerHTML = `
-        <h1> ${name}</h1>
+        <h1>${name}</h1>
         <p class="location"> ${city} 
             <span class="location">${country}</span> 
         </p>

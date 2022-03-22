@@ -1,36 +1,33 @@
-function openModal() {
+function openModalLightbox() {
     document.getElementById("myModal").style.display = "block";
 }
 
-function closeModal() {
+function closeModalLightbox() {
     document.getElementById("myModal").style.display = "none";
 }
 
 let slideIndex = 1;
+
 showSlides(slideIndex);
 
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+// Next/previous controls
+function changeMedia(numeroPhoto) {
+    showSlides(slideIndex += numeroPhoto);
 }
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
+
+function currentMedia(numeroPhoto) {
+    showSlides(slideIndex = numeroPhoto);
 }
 
-function showSlides(n) {
+function showSlides(numeroPhoto) {
     let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("demo");
-    let captionText = document.getElementById("caption");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
+    let slides = document.getElementsByClassName("mySlides"); //Récupère toutes les images
+    if (numeroPhoto > slides.length) {slideIndex = 1} //Retour à la 1ere image
+    if (numeroPhoto < 1) {slideIndex = slides.length} //Retour à la dernière image
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
     slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    captionText.innerHTML = dots[slideIndex-1].alt;
+    console.log(slides)
 }

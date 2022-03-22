@@ -20,13 +20,13 @@
 }
 
 .photographer_info article h1 {
-    color: #DB8876;
+    color: #D3573C;
     font-size: xxx-large;
     margin: 42px 0 0 0;
 }
 
 .photographer_info article p {
-    color: darkgrey;
+    color: #525252;
 }
 
 .contact_button {
@@ -47,7 +47,7 @@
 }
 
 .contact_button:hover {
-    background-color: #DB8876;
+    background-color: #D3573C;
 }
 
 .photographer_box {
