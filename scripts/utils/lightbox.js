@@ -1,6 +1,18 @@
 //Ouverture modale
 function openModalLightbox(numeroPhoto) {
-    document.getElementById("myModal"+numeroPhoto).style.display = "block";
+
+    let images = document.getElementsByClassName("mySlides");
+    if (numeroPhoto > images.length) {
+
+        document.getElementById("myModal" + 1).style.display = "block";
+    } else {
+        if (numeroPhoto < 1) {
+            document.getElementById("myModal" + images.length).style.display = "block";
+        } else {
+            document.getElementById("myModal" + numeroPhoto).style.display = "block";
+        }
+    }
+
 }
 //Fermeture modale
 function closeModalLightbox(numeroPhoto) {
@@ -12,24 +24,29 @@ let imagesIndex = 1;
 
 showImages(imagesIndex);
 
-// Fonction suivant/précédent
-function changeMedia(numeroPhoto) {
-    showImages(imagesIndex += numeroPhoto);
-}
-
 //Fonction qui affiche l'image actuelle
 function currentMedia(numeroPhoto) {
-    showImages(imagesIndex = numeroPhoto);
+
+    let images = document.getElementsByClassName("mySlides");
+
+    if (numeroPhoto > images.length) {
+        imagesIndex = 1;
+        showImages(imagesIndex);
+    } else {
+        if (numeroPhoto < 1) {
+            imagesIndex = images.length;
+            showImages(imagesIndex);
+        } else {
+            showImages(imagesIndex = numeroPhoto);
+        }
+    }
 }
 
 function showImages(numeroPhoto) {
     let i;
     //Récupère toutes les images
     let images = document.getElementsByClassName("mySlides");
-    //Retour à la 1ere image
-    if (numeroPhoto > images.length) {imagesIndex = 1}
-    //Retour à la dernière image
-    if (numeroPhoto < 1) {imagesIndex = images.length}
+
     //Boucle permettant de passer d'une image à une autre
     for (i = 0; i < images.length; i++) {
         images[i].style.display = "none";

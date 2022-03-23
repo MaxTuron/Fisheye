@@ -29,8 +29,8 @@ function mediaFactory(data, numeroPhoto) {
                             <source src="${videos}" type="video/mp4">
                        </video>
                     </div>  
-                    <a class="prev" aria-label="Previous image" onclick="changeMedia(-1)"><</a>
-                    <a class="next" aria-label="Next image" onclick="changeMedia(1)">></a>
+                     <a class="prev" aria-label="Previous image" onclick="openModalLightbox(${numeroPhoto}-1);currentMedia(${numeroPhoto}-1);closeModalLightbox(${numeroPhoto})"><</a>
+                    <a class="next" aria-label="Next image" onclick="openModalLightbox(${numeroPhoto}+1);currentMedia(${numeroPhoto}+1);closeModalLightbox(${numeroPhoto})">></a>             
                 </div>
              </div>
              
@@ -54,8 +54,8 @@ function mediaFactory(data, numeroPhoto) {
                          <img src="${picture}" alt="image${title}">
                          <p>${title}</p>
                     </div>  
-                    <a class="prev" aria-label="Previous image" onclick="changeMedia(-1)"><</a>
-                    <a class="next" aria-label="Next image" onclick="changeMedia(1)">></a>
+                    <a class="prev" aria-label="Previous image" onclick="openModalLightbox(${numeroPhoto}-1);currentMedia(${numeroPhoto}-1);closeModalLightbox(${numeroPhoto})"><</a>
+                    <a class="next" aria-label="Next image" onclick="openModalLightbox(${numeroPhoto}+1);currentMedia(${numeroPhoto}+1);closeModalLightbox(${numeroPhoto})">></a>
                 </div>
              </div>
         `;

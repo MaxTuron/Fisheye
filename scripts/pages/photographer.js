@@ -63,11 +63,8 @@ async function displayMedia(media) {
         if (medias.photographerId === IDphotographer) {
             numeroPhoto = numeroPhoto +1;
             let mediaModel = mediaFactory(medias, numeroPhoto);
-
             let mediaCardDOM = mediaModel.getMediaCardDOM();
-
             mediaSection.appendChild(mediaCardDOM);
-
             compteurLikes = compteurLikes + medias.likes;
         }
     });
