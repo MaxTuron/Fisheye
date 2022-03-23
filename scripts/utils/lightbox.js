@@ -1,33 +1,40 @@
-function openModalLightbox() {
-    document.getElementById("myModal").style.display = "block";
+//Ouverture modale
+function openModalLightbox(numeroPhoto) {
+    document.getElementById("myModal"+numeroPhoto).style.display = "block";
+}
+//Fermeture modale
+function closeModalLightbox(numeroPhoto) {
+    document.getElementById("myModal"+numeroPhoto).style.display = "none";
 }
 
-function closeModalLightbox() {
-    document.getElementById("myModal").style.display = "none";
-}
+//Déclaration de l'index
+let imagesIndex = 1;
 
-let slideIndex = 1;
+showImages(imagesIndex);
 
-showSlides(slideIndex);
-
-// Next/previous controls
+// Fonction suivant/précédent
 function changeMedia(numeroPhoto) {
-    showSlides(slideIndex += numeroPhoto);
+    showImages(imagesIndex += numeroPhoto);
 }
 
-
+//Fonction qui affiche l'image actuelle
 function currentMedia(numeroPhoto) {
-    showSlides(slideIndex = numeroPhoto);
+    showImages(imagesIndex = numeroPhoto);
 }
 
-function showSlides(numeroPhoto) {
+function showImages(numeroPhoto) {
     let i;
-    let slides = document.getElementsByClassName("mySlides"); //Récupère toutes les images
-    if (numeroPhoto > slides.length) {slideIndex = 1} //Retour à la 1ere image
-    if (numeroPhoto < 1) {slideIndex = slides.length} //Retour à la dernière image
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    //Récupère toutes les images
+    let images = document.getElementsByClassName("mySlides");
+    //Retour à la 1ere image
+    if (numeroPhoto > images.length) {imagesIndex = 1}
+    //Retour à la dernière image
+    if (numeroPhoto < 1) {imagesIndex = images.length}
+    //Boucle permettant de passer d'une image à une autre
+    for (i = 0; i < images.length; i++) {
+        images[i].style.display = "none";
     }
-    slides[slideIndex-1].style.display = "block";
-    console.log(slides)
+    //Affiche les images
+    images[imagesIndex-1].style.display = "block";
+    console.log(images)
 }

@@ -1,11 +1,15 @@
+//On récupére ce qu'il y a apres le .html dans l'url de la page
 let searchParams = window.location.search;
+//On récupére uniquement ce qui nous intéresse, l'ID, en enlevant '?id=' de l'url
 let searchParamsId = searchParams.substring(4, window.location.search.length);
+//On parse le résultat pour pouvoir l'utiliser
 let IDphotographer = parseInt(searchParamsId);
 
 async function getPhotographers() {
     try {
         let response = await fetch("./data/photographers.json");
         let data = await response.json();
+        //Défini la catégorie de données attendue
         let photographers = await data.photographers;
         return {photographers}; //Retourne les données des photographes [Sous forme d'un tableau {d'objets}]
     } catch (error) {
@@ -17,8 +21,9 @@ async function getMedia() {
     try {
         let response = await fetch("./data/photographers.json");
         let data = await response.json();
+        //Défini la catégorie de données attendue
         let media = await data.media;
-        return {media}; //Retourne les données des photographes [Sous forme d'un tableau {d'objets}]
+        return {media}; //Retourne les données des medias [Sous forme d'un tableau {d'objets}]
     } catch (error) {
         console.error(error);
     }
