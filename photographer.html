@@ -21,13 +21,13 @@
     <div class="tri_section">
         <p>Triez par : </p>
         <select name="tri" class="other_button">
-            <option id="popularity">Popularité</option>
-            <option id="date">Date</option>
-            <option id="title">Titre</option>
+            <option id="popularity" onclick="sortPopularity()">Popularité</option>
+            <option id="date" onclick="sortDate()">Date</option>
+            <option id="title" onclick="sortTitle()">Titre</option>
         </select>
     </div>
 
-    <div class="media_section"></div>
+    <div id="media_section" class="media_section"></div>
     <div class="likes_section"></div>
 
     <div class="photographer_box">

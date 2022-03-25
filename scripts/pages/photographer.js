@@ -29,6 +29,18 @@ async function getMedia() {
     }
 }
 
+async function getMediaPhotographe() {
+    try {
+        let response = await fetch("./data/photographers.json");
+        let data = await response.json();
+        //Défini la catégorie de données attendue
+        let media = await data.media;
+        return {media}; //Retourne les données des medias [Sous forme d'un tableau {d'objets}]
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 
 async function displayHeader(photographers) {
     let photographersSection = document.querySelector(".photographer_info");
@@ -93,6 +105,41 @@ async function addLike(id) {
         }
     });
 }
+
+
+
+async function sortPopularity(){
+    let {media} = await getMediaPhotographe();
+
+        function compareLikes(a, b) {
+            return a.likes - b.likes;
+        }
+        console.log(media.sort(compareLikes));
+}
+
+
+async function sortDate(){
+    let {media} = await getMedia();
+
+    function compareDate(a, b) {
+            return new Date(a.date) - new Date(b.date);
+    }
+    console.log(media.sort(compareDate));
+}
+
+async function sortTitle() {
+    let {media} = await getMedia();
+
+    function compareTitle(a, b) {
+        return a.title > b.title;
+    }
+    console.log(media.sort(compareTitle));
+}
+
+
+
+
+
 
 async function init() {
     // Récupère les datas des photographes

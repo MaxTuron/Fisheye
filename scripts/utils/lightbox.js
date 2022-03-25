@@ -3,7 +3,6 @@ function openModalLightbox(numeroPhoto) {
 
     let images = document.getElementsByClassName("mySlides");
     if (numeroPhoto > images.length) {
-
         document.getElementById("myModal" + 1).style.display = "block";
     } else {
         if (numeroPhoto < 1) {
@@ -42,7 +41,7 @@ function currentMedia(numeroPhoto) {
     }
 }
 
-function showImages(numeroPhoto) {
+function showImages() {
     let i;
     //Récupère toutes les images
     let images = document.getElementsByClassName("mySlides");
