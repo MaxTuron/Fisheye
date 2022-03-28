@@ -35,7 +35,14 @@ async function getMediaPhotographe() {
         let data = await response.json();
         //Défini la catégorie de données attendue
         let media = await data.media;
-        return {media}; //Retourne les données des medias [Sous forme d'un tableau {d'objets}]
+        let newMedia = [];
+
+        media.forEach((medias) => {
+            if (medias.photographerId === IDphotographer) {
+                newMedia.push(medias);
+            }
+        });
+        return {newMedia}; //Retourne les données des medias [Sous forme d'un tableau {d'objets}]
     } catch (error) {
         console.error(error);
     }
@@ -106,34 +113,63 @@ async function addLike(id) {
     });
 }
 
-
-
 async function sortPopularity(){
-    let {media} = await getMediaPhotographe();
+    let {newMedia} = await getMediaPhotographe();
+    let mediaSection = document.querySelector(".media_section");
+    let numeroPhoto =0;
 
-        function compareLikes(a, b) {
-            return a.likes - b.likes;
-        }
-        console.log(media.sort(compareLikes));
+    function compareLikes(a, b) {
+        return a.likes - b.likes;
+    }
+
+    newMedia.sort(compareLikes);
+    mediaSection.innerHTML=``;
+
+    newMedia.forEach((medias) => {
+        numeroPhoto = numeroPhoto +1;
+        let mediaModel = mediaFactory(medias, numeroPhoto);
+        let mediaPopuCardDOM = mediaModel.getMediaCardDOM();
+        mediaSection.appendChild(mediaPopuCardDOM);
+    });
 }
 
 
 async function sortDate(){
-    let {media} = await getMedia();
+    let {newMedia} = await getMediaPhotographe();
+    let mediaSection = document.querySelector(".media_section");
+    let numeroPhoto =0;
 
     function compareDate(a, b) {
             return new Date(a.date) - new Date(b.date);
     }
-    console.log(media.sort(compareDate));
-}
 
+    newMedia.sort(compareDate);
+    mediaSection.innerHTML=``;
+
+    newMedia.forEach((medias) => {
+        numeroPhoto = numeroPhoto +1;
+        let mediaModel = mediaFactory(medias, numeroPhoto);
+        let mediaPopuCardDOM = mediaModel.getMediaCardDOM();
+        mediaSection.appendChild(mediaPopuCardDOM);
+    });
+}
 async function sortTitle() {
-    let {media} = await getMedia();
+    let {newMedia} = await getMediaPhotographe();
+    let mediaSection = document.querySelector(".media_section");
+    let numeroPhoto =0;
 
     function compareTitle(a, b) {
         return a.title > b.title;
     }
-    console.log(media.sort(compareTitle));
+    newMedia.sort(compareTitle);
+    mediaSection.innerHTML=``;
+
+    newMedia.forEach((medias) => {
+        numeroPhoto = numeroPhoto +1;
+        let mediaModel = mediaFactory(medias, numeroPhoto);
+        let mediaPopuCardDOM = mediaModel.getMediaCardDOM();
+        mediaSection.appendChild(mediaPopuCardDOM);
+    });
 }
 
 
