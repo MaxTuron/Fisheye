@@ -9,7 +9,7 @@ async function getPhotographers() {
     try {
         let response = await fetch("./data/photographers.json");
         let data = await response.json();
-        //Défini la catégorie de données attendue
+        //Récupère la catégorie "photographe" du fichier JSON
         let photographers = await data.photographers;
         return {photographers}; //Retourne les données des photographes [Sous forme d'un tableau {d'objets}]
     } catch (error) {
@@ -21,7 +21,7 @@ async function getMedia() {
     try {
         let response = await fetch("./data/photographers.json");
         let data = await response.json();
-        //Défini la catégorie de données attendue
+        //Récupère la catégorie "média" du fichier JSON
         let media = await data.media;
         return {media}; //Retourne les données des medias [Sous forme d'un tableau {d'objets}]
     } catch (error) {
@@ -33,16 +33,21 @@ async function getMediaPhotographe() {
     try {
         let response = await fetch("./data/photographers.json");
         let data = await response.json();
-        //Défini la catégorie de données attendue
+        //Récupère la catégorie "média" du fichier JSON
         let media = await data.media;
+        //Déclaration d'un deuxième tableau
         let newMedia = [];
 
+        //Boucle qui parcourt tous les médias
         media.forEach((medias) => {
+            //Vérification de l'ID du média avec l'ID du photographe actuel
             if (medias.photographerId === IDphotographer) {
+                //Si les ID sont identiques alors le média et ajouté au tableau
                 newMedia.push(medias);
             }
         });
-        return {newMedia}; //Retourne les données des medias [Sous forme d'un tableau {d'objets}]
+        //Retourne les données des medias [Sous forme d'un tableau {d'objets}]
+        return {newMedia};
     } catch (error) {
         console.error(error);
     }
@@ -117,20 +122,26 @@ async function sortPopularity(){
     let {newMedia} = await getMediaPhotographe();
     let mediaSection = document.querySelector(".media_section");
     let numeroPhoto =0;
+    let totalLikes = document.querySelector(".totalLikes");
+    let compteurLikes = 0;
 
+    //Fonction qui compare les likes
     function compareLikes(a, b) {
         return a.likes - b.likes;
     }
-
+    //Tri les likes dans l'ordre croissant
     newMedia.sort(compareLikes);
+    //Vide les médias déjà presents
     mediaSection.innerHTML=``;
-
+    //Affiche les médias dans le nouvel ordre
     newMedia.forEach((medias) => {
         numeroPhoto = numeroPhoto +1;
         let mediaModel = mediaFactory(medias, numeroPhoto);
-        let mediaPopuCardDOM = mediaModel.getMediaCardDOM();
-        mediaSection.appendChild(mediaPopuCardDOM);
+        let mediaPopularityCardDOM = mediaModel.getMediaCardDOM();
+        mediaSection.appendChild(mediaPopularityCardDOM);
+        compteurLikes = compteurLikes + medias.likes;
     });
+    totalLikes.innerHTML = compteurLikes;
 }
 
 
@@ -138,48 +149,58 @@ async function sortDate(){
     let {newMedia} = await getMediaPhotographe();
     let mediaSection = document.querySelector(".media_section");
     let numeroPhoto =0;
+    let totalLikes = document.querySelector(".totalLikes");
+    let compteurLikes = 0;
 
+    //Fonction qui compare les dates
     function compareDate(a, b) {
             return new Date(a.date) - new Date(b.date);
     }
-
+    //Tri les date dans l'ordre croissant
     newMedia.sort(compareDate);
+    //Vide les médias déjà presents
     mediaSection.innerHTML=``;
-
+    //Affiche les médias dans le nouvel ordre
     newMedia.forEach((medias) => {
         numeroPhoto = numeroPhoto +1;
         let mediaModel = mediaFactory(medias, numeroPhoto);
-        let mediaPopuCardDOM = mediaModel.getMediaCardDOM();
-        mediaSection.appendChild(mediaPopuCardDOM);
+        let mediaDateCardDOM = mediaModel.getMediaCardDOM();
+        mediaSection.appendChild(mediaDateCardDOM);
+        compteurLikes = compteurLikes + medias.likes;
     });
+    totalLikes.innerHTML = compteurLikes;
 }
 async function sortTitle() {
+    //Récupère le tableau des médias du photographe
     let {newMedia} = await getMediaPhotographe();
     let mediaSection = document.querySelector(".media_section");
     let numeroPhoto =0;
+    let totalLikes = document.querySelector(".totalLikes");
+    let compteurLikes = 0;
 
+    //Fonction qui compare les titres
     function compareTitle(a, b) {
         return a.title > b.title;
     }
+    //Tri les titres dans l'ordre alphabétique
     newMedia.sort(compareTitle);
+    //Vide les médias déjà presents
     mediaSection.innerHTML=``;
-
+    //Affiche les médias dans le nouvel ordre
     newMedia.forEach((medias) => {
         numeroPhoto = numeroPhoto +1;
         let mediaModel = mediaFactory(medias, numeroPhoto);
-        let mediaPopuCardDOM = mediaModel.getMediaCardDOM();
-        mediaSection.appendChild(mediaPopuCardDOM);
+        let mediaTitleCardDOM = mediaModel.getMediaCardDOM();
+        mediaSection.appendChild(mediaTitleCardDOM);
+        compteurLikes = compteurLikes + medias.likes;
     });
+    totalLikes.innerHTML = compteurLikes;
 }
 
-
-
-
-
-
 async function init() {
-    // Récupère les datas des photographes
+    // Récupères les datas des photographes
     let {photographers} = await getPhotographers();
+    // Récupères les datas des médias
     let {media} = await getMedia();
     displayHeader(photographers);
     displayMedia(media);
