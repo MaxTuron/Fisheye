@@ -121,9 +121,6 @@ async function addLike(id) {
 async function sortPopularity(){
     let {newMedia} = await getMediaPhotographe();
     let mediaSection = document.querySelector(".media_section");
-    let numeroPhoto =0;
-    let totalLikes = document.querySelector(".totalLikes");
-    let compteurLikes = 0;
 
     //Fonction qui compare les likes
     function compareLikes(a, b) {
@@ -134,23 +131,13 @@ async function sortPopularity(){
     //Vide les médias déjà presents
     mediaSection.innerHTML=``;
     //Affiche les médias dans le nouvel ordre
-    newMedia.forEach((medias) => {
-        numeroPhoto = numeroPhoto +1;
-        let mediaModel = mediaFactory(medias, numeroPhoto);
-        let mediaPopularityCardDOM = mediaModel.getMediaCardDOM();
-        mediaSection.appendChild(mediaPopularityCardDOM);
-        compteurLikes = compteurLikes + medias.likes;
-    });
-    totalLikes.innerHTML = compteurLikes;
+    displayMedia(newMedia);
 }
 
 
 async function sortDate(){
     let {newMedia} = await getMediaPhotographe();
     let mediaSection = document.querySelector(".media_section");
-    let numeroPhoto =0;
-    let totalLikes = document.querySelector(".totalLikes");
-    let compteurLikes = 0;
 
     //Fonction qui compare les dates
     function compareDate(a, b) {
@@ -161,22 +148,12 @@ async function sortDate(){
     //Vide les médias déjà presents
     mediaSection.innerHTML=``;
     //Affiche les médias dans le nouvel ordre
-    newMedia.forEach((medias) => {
-        numeroPhoto = numeroPhoto +1;
-        let mediaModel = mediaFactory(medias, numeroPhoto);
-        let mediaDateCardDOM = mediaModel.getMediaCardDOM();
-        mediaSection.appendChild(mediaDateCardDOM);
-        compteurLikes = compteurLikes + medias.likes;
-    });
-    totalLikes.innerHTML = compteurLikes;
+    displayMedia(newMedia);
 }
 async function sortTitle() {
     //Récupère le tableau des médias du photographe
     let {newMedia} = await getMediaPhotographe();
     let mediaSection = document.querySelector(".media_section");
-    let numeroPhoto =0;
-    let totalLikes = document.querySelector(".totalLikes");
-    let compteurLikes = 0;
 
     //Fonction qui compare les titres
     function compareTitle(a, b) {
@@ -187,14 +164,7 @@ async function sortTitle() {
     //Vide les médias déjà presents
     mediaSection.innerHTML=``;
     //Affiche les médias dans le nouvel ordre
-    newMedia.forEach((medias) => {
-        numeroPhoto = numeroPhoto +1;
-        let mediaModel = mediaFactory(medias, numeroPhoto);
-        let mediaTitleCardDOM = mediaModel.getMediaCardDOM();
-        mediaSection.appendChild(mediaTitleCardDOM);
-        compteurLikes = compteurLikes + medias.likes;
-    });
-    totalLikes.innerHTML = compteurLikes;
+    displayMedia(newMedia);
 }
 
 async function init() {
