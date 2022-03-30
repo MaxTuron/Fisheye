@@ -25,7 +25,7 @@ function mediaFactory(data, numeroPhoto) {
                 <span class="close cursor" aria-label="Close dialog" onclick="closeModalLightbox(${numeroPhoto})">X</span>
                 <div class="modal-content">
                     <div class="mySlides" aria-label="image closeup view" role="dialog">
-                         <video controls>
+                         <video class="img_lightbox" controls>
                             <source src="${videos}" type="video/mp4">
                        </video>
                     </div>  
@@ -51,7 +51,7 @@ function mediaFactory(data, numeroPhoto) {
                 <span class="close cursor" aria-label="Close dialog" onclick="closeModalLightbox(${numeroPhoto})">X</span>
                 <div class="modal-content">
                     <div class="mySlides" aria-label="image closeup view" role="dialog">
-                         <img src="${picture}" alt="image${title}">
+                         <img class="img_lightbox" src="${picture}" alt="image${title}">
                          <p>${title}</p>
                     </div>  
                     <a class="prev" aria-label="Previous image" onclick="openModalLightbox(${numeroPhoto}-1);currentMedia(${numeroPhoto}-1);closeModalLightbox(${numeroPhoto})"><</a>

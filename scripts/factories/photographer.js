@@ -40,6 +40,7 @@ function photographerPhotoFactory(data) {
     return {picture, getUserCardDOMPhoto}
 }
 
+
 function photographerInfosFactory(data) {
     const {name, city, country, tagline} = data;
 
@@ -56,5 +57,14 @@ function photographerInfosFactory(data) {
         return (article);
     }
 
-    return {name, city, country, tagline, getUserCardDOM}
+    function getButtonContact() {
+        const article = document.createElement('article');
+        article.innerHTML = `
+            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        `;
+
+        return (article);
+    }
+
+    return {name, city, country, tagline, getUserCardDOM,getButtonContact}
 }

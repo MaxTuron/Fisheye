@@ -5,37 +5,14 @@ let searchParamsId = searchParams.substring(4, window.location.search.length);
 //On parse le résultat pour pouvoir l'utiliser
 let IDphotographer = parseInt(searchParamsId);
 
-async function getPhotographers() {
+async function getData() {
     try {
         let response = await fetch("./data/photographers.json");
         let data = await response.json();
         //Récupère la catégorie "photographe" du fichier JSON
-        let photographers = await data.photographers;
-        return {photographers}; //Retourne les données des photographes [Sous forme d'un tableau {d'objets}]
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-async function getMedia() {
-    try {
-        let response = await fetch("./data/photographers.json");
-        let data = await response.json();
-        //Récupère la catégorie "média" du fichier JSON
-        let media = await data.media;
-        return {media}; //Retourne les données des medias [Sous forme d'un tableau {d'objets}]
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-async function getMediaPhotographe() {
-    try {
-        let response = await fetch("./data/photographers.json");
-        let data = await response.json();
-        //Récupère la catégorie "média" du fichier JSON
-        let media = await data.media;
-        //Déclaration d'un deuxième tableau
+        let allData = await data;
+        let photographers = allData.photographers;
+        let media = allData.media;
         let newMedia = [];
 
         //Boucle qui parcourt tous les médias
@@ -46,13 +23,12 @@ async function getMediaPhotographe() {
                 newMedia.push(medias);
             }
         });
-        //Retourne les données des medias [Sous forme d'un tableau {d'objets}]
-        return {newMedia};
+
+        return {photographers, media, newMedia}; //Retourne les données des photographes [Sous forme d'un tableau {d'objets}]
     } catch (error) {
         console.error(error);
     }
 }
-
 
 async function displayHeader(photographers) {
     let photographersSection = document.querySelector(".photographer_info");
@@ -60,16 +36,17 @@ async function displayHeader(photographers) {
 
     let prixPhotographe = 0;
 
-    photographersSection.innerHTML = `<button class="contact_button" onclick="displayModal()">Contactez-moi</button>`;
-
     photographers.forEach((photographer) => {
         if (photographer.id === IDphotographer) {
             let photographerModel = photographerInfosFactory(photographer);
             let photographerModelPhoto = photographerPhotoFactory(photographer);
+
             let userCardDOM = photographerModel.getUserCardDOM();
             let userCardDOMPhoto = photographerModelPhoto.getUserCardDOMPhoto();
+
             photographersSection.appendChild(userCardDOM);
             photographersSection.appendChild(userCardDOMPhoto);
+
             prixPhotographe = photographer.price;
         }
     });
@@ -97,21 +74,29 @@ async function displayMedia(media) {
 }
 
 async function addLike(id) {
-    let {media} = await getMedia();
+    //Récupère tous les médias
+    let {media} = await getData();
 
     let totalLikes = document.querySelector(".totalLikes");
     let mediaLikes = document.querySelector("[data-id=" + CSS.escape(id) + "]");
 
+    //Récupère les likes de tous les médias
     let compteurTotal = totalLikes.innerHTML;
+    //Récupère les likes d'un média
     let compteurMedia = mediaLikes.innerHTML;
 
+    //On parse les valeurs récupérer précédemment pour pouvoir l'incrémenté
     let newcompteurTotal = parseInt(compteurTotal);
     let newcompteurMedia = parseInt(compteurMedia);
 
+    //Pour chaque média
     media.forEach((medias) => {
+        //On compare l'id du média avec l'id envoyé lors du clic sur le bouton
         if (medias.id === id) {
+            //On ajoute 1 au compteur de likes du média et du total
             newcompteurTotal = newcompteurTotal + 1;
             newcompteurMedia = newcompteurMedia + 1;
+            //On affiche le nouveau résultat
             totalLikes.innerHTML = newcompteurTotal;
             mediaLikes.innerHTML = newcompteurMedia;
         }
@@ -119,12 +104,13 @@ async function addLike(id) {
 }
 
 async function sortPopularity(){
-    let {newMedia} = await getMediaPhotographe();
+    //Récupère les médias du photographe
+    let {newMedia} = await getData();
     let mediaSection = document.querySelector(".media_section");
 
     //Fonction qui compare les likes
     function compareLikes(a, b) {
-        return a.likes - b.likes;
+        return b.likes - a.likes;
     }
     //Tri les likes dans l'ordre croissant
     newMedia.sort(compareLikes);
@@ -134,9 +120,8 @@ async function sortPopularity(){
     displayMedia(newMedia);
 }
 
-
 async function sortDate(){
-    let {newMedia} = await getMediaPhotographe();
+    let {newMedia} = await getData();
     let mediaSection = document.querySelector(".media_section");
 
     //Fonction qui compare les dates
@@ -150,9 +135,10 @@ async function sortDate(){
     //Affiche les médias dans le nouvel ordre
     displayMedia(newMedia);
 }
+
 async function sortTitle() {
     //Récupère le tableau des médias du photographe
-    let {newMedia} = await getMediaPhotographe();
+    let {newMedia} = await getData();
     let mediaSection = document.querySelector(".media_section");
 
     //Fonction qui compare les titres
@@ -169,9 +155,9 @@ async function sortTitle() {
 
 async function init() {
     // Récupères les datas des photographes
-    let {photographers} = await getPhotographers();
+    let {photographers} = await getData();
     // Récupères les datas des médias
-    let {media} = await getMedia();
+    let {media} = await getData();
     displayHeader(photographers);
     displayMedia(media);
 }

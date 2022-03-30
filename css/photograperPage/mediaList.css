@@ -63,3 +63,8 @@
     text-decoration: none;
     display: inline-block;
 }
+
+.img_lightbox {
+    height: 750px !important;
+    object-fit:contain !important ;
+}
