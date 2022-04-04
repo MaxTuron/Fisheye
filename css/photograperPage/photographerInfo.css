@@ -6,6 +6,7 @@
     border-radius: 100%;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .photographer_info article img {
@@ -41,9 +42,7 @@
     border-radius: 5px;
     cursor: pointer;
     display: flex;
-    align-self: center;
-    right: 41%;
-    position: absolute;
+    align-items: center;
 }
 
 .contact_button:hover {
@@ -51,7 +50,7 @@
 }
 
 .photographer_box {
-    width: 25%;
+    width: 202px;
     background-color: #D3573C;
     position: fixed;
     bottom: 0px;
@@ -60,4 +59,11 @@
     border-top-right-radius: 5px;
     display: flex;
     justify-content: space-around;
+}
+
+@media (max-width: 950px){
+    .photographer_info {
+        display: flex;
+        flex-direction: column;
+    }
 }

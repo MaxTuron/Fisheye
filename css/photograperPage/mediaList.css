@@ -68,3 +68,19 @@
     height: 750px !important;
     object-fit:contain !important ;
 }
+
+@media (max-width: 1030px){
+    .media_section {
+        display: flex;
+        gap: 70px;
+        margin: 50px 54px;
+        flex-wrap: wrap;
+    }
+
+    .divCard {
+        height: 400px;
+        width: 100%;
+        margin: 0 0 70px 0;
+        object-fit: cover;
+    }
+}

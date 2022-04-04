@@ -25,7 +25,7 @@ h1 {
 
 .logo {
     height: 50px;
-    margin-left: 100px;
+    margin-left: 26px;
 }
 
 /* Header global */
@@ -47,12 +47,25 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+@media (max-width: 470px){
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        padding: 0;
+        margin: 0;
+    }
+
+    .photograph-header {
+        margin: 0 22px;
+    }
 }
 

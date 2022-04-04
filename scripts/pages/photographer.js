@@ -39,12 +39,15 @@ async function displayHeader(photographers) {
     photographers.forEach((photographer) => {
         if (photographer.id === IDphotographer) {
             let photographerModel = photographerInfosFactory(photographer);
+            let photographerButtonModel = photographerInfosFactory(photographer);
             let photographerModelPhoto = photographerPhotoFactory(photographer);
 
             let userCardDOM = photographerModel.getUserCardDOM();
+            let userButtonCardDOM = photographerButtonModel.getButtonContact();
             let userCardDOMPhoto = photographerModelPhoto.getUserCardDOMPhoto();
 
             photographersSection.appendChild(userCardDOM);
+            photographersSection.appendChild(userButtonCardDOM);
             photographersSection.appendChild(userCardDOMPhoto);
 
             prixPhotographe = photographer.price;

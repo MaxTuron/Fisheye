@@ -59,6 +59,7 @@ function mediaFactory(data, numeroPhoto) {
                 </div>
              </div>
         `;
+            div.className= 'divCard';
         }
         return (div);
     }
