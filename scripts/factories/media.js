@@ -14,42 +14,45 @@ function mediaFactory(data, numeroPhoto) {
         if (image === undefined) {
             //On écris le code HTML suivant
             div.innerHTML = ` 
-             <button onkeydown="openModalKey(event,${numeroPhoto})" class="imgButton"><video src="${videos}" aria-label="video" poster="${videos}" class="hover-shadow" onclick="openModalLightbox(${numeroPhoto});currentMedia(${numeroPhoto})"></button>                        
-             </video>
+             <video  onkeydown="openModalKey(event,${numeroPhoto})" src="${videos}" aria-label="video" poster="${videos}" class="hover-shadow imgButton" onclick="openModalLightbox(${numeroPhoto});currentMedia(${numeroPhoto})"></video> 
              <h2 class="titre_media">${title}
+             <div>
                 <button class="addLikes" data-id="${id}" onclick="addLike(${mediaID})">${likes}</button>
                 <img src="${coeur}" alt="likes" class="img_coeur LikesMedia">
+             </div>
              </h2>
-             <div tabindex="0" onkeydown="modalKeyboard(event,${numeroPhoto});" autofocus>
-                <div id="myModal${numeroPhoto}" class="modal" aria-hidden="true" role="img">
-                    <span class="close cursor" aria-label="Close dialog" tabindex=0 onclick="closeModalLightbox(${numeroPhoto})">X</span>
+             <div onkeydown="modalKeyboard(event,${numeroPhoto});">
+                <div tabindex="0" id="myModal${numeroPhoto}" class="modal" aria-hidden="true" role="dialog" autofocus>
+                    <span class="close cursor" aria-label="Close dialog" onclick="closeModalLightbox(${numeroPhoto})">X</span>
                     <div class="modal-content">
                         <div class="mySlides" aria-label="image closeup view" role="dialog">
                             <video class="img_lightbox" controls>
                                 <source src="${videos}" type="video/mp4">
                             </video>
+                            <p>${title}</p>
                         </div>  
-                        <a class="prev" aria-label="Previous image" tabindex=0 onclick="openModalLightbox(${numeroPhoto}-1);currentMedia(${numeroPhoto}-1);closeModalLightbox(${numeroPhoto})"><</a>
-                        <a class="next" aria-label="Next image" tabindex=0 onclick="openModalLightbox(${numeroPhoto}+1);currentMedia(${numeroPhoto}+1);closeModalLightbox(${numeroPhoto})">></a>             
+                        <a class="prev" aria-label="Previous image" onclick="openModalLightbox(${numeroPhoto}-1);currentMedia(${numeroPhoto}-1);closeModalLightbox(${numeroPhoto})"><</a>
+                        <a class="next" aria-label="Next image" onclick="openModalLightbox(${numeroPhoto}+1);currentMedia(${numeroPhoto}+1);closeModalLightbox(${numeroPhoto})">></a>             
                     </div>
                 </div>  
              </div>              
         `;
+            div.id= 'media'+numeroPhoto;
+            div.className= 'divCard hideTab';
             //Sinon c'est que c'est une image
         } else {
             //On écris le code HTML suivant
             div.innerHTML = `
-
-             <button onkeydown="openModalKey(event,${numeroPhoto})" class="imgButton"><img src="${picture}" alt="${title}" class="hover-shadow" onclick="openModalLightbox(${numeroPhoto});currentMedia(${numeroPhoto})"></button>
+             <button tabindex="0" onkeydown="openModalKey(event,${numeroPhoto})" class="imgButton"><img src="${picture}" alt="${title}" class="hover-shadow" onclick="openModalLightbox(${numeroPhoto});currentMedia(${numeroPhoto})"></button>
              <h2 class="titre_media">${title}
              <div>
-                <button class="addLikes" data-id="${id}" onclick="addLike(${mediaID})" role="button">${likes}</button>
+                <button tabindex="0" class="addLikes" data-id="${id}" onclick="addLike(${mediaID})" role="button">${likes}</button>
                 <img src="${coeur}" alt="likes" class="img_coeur" role="img">
-                </div>
+             </div>
              </h2>  
-             <div tabindex="0" onkeydown="modalKeyboard(event,${numeroPhoto});" autofocus>
-                <div id="myModal${numeroPhoto}" aria-modal="true" class="modal" aria-hidden="true" role="dialog" >
-                    <span id="closeBtn${numeroPhoto}" tabindex=0 class="close cursor" aria-label="Close dialog" onclick="closeModalLightbox(${numeroPhoto})" role="button">X</span>
+             <div onkeydown="modalKeyboard(event,${numeroPhoto})">
+                <div tabindex="0" id="myModal${numeroPhoto}" aria-modal="true" class="modal" aria-hidden="true" role="dialog" >
+                    <span id="closeBtn${numeroPhoto}" class="close cursor" aria-label="Close dialog" onclick="closeModalLightbox(${numeroPhoto})" role="button">X</span>
                     <div class="modal-content">
                         <div class="mySlides" aria-label="image closeup view">
                             <img class="img_lightbox" src="${picture}" alt="image${title}" role="img">
@@ -61,7 +64,8 @@ function mediaFactory(data, numeroPhoto) {
                 </div>
              </div>
         `;
-            div.className= 'divCard';
+            div.id= 'media'+numeroPhoto;
+            div.className= 'divCard hideTab';
         }
         return (div);
     }

@@ -3,11 +3,14 @@ function openModalLightbox(numeroPhoto) {
     let images = document.getElementsByClassName("mySlides");
     if (numeroPhoto > images.length) {
         document.getElementById("myModal" + 1).style.display = "block";
+        document.getElementById("myModal" + 1).focus();
     } else {
         if (numeroPhoto < 1) {
             document.getElementById("myModal" + images.length).style.display = "block";
+            document.getElementById("myModal" + images.length).focus();
         } else {
             document.getElementById("myModal" + numeroPhoto).style.display = "block";
+            document.getElementById("myModal" + numeroPhoto).focus();
         }
     }
 }
@@ -64,8 +67,8 @@ async function modalKeyboard(event, numeroPhoto){
     let nextMedia = numeroPhoto+1;
     let previousMedia = numeroPhoto-1;
     if (event.key === "Escape") {
-            closeModalLightbox(numeroPhoto);
-        };
+        closeModalLightbox(numeroPhoto);
+    }
     if (event.key === "ArrowLeft") {
         openModalLightbox(previousMedia);
         currentMedia(previousMedia);
