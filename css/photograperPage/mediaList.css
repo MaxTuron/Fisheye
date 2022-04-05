@@ -5,18 +5,13 @@
     margin: 50px 100px;
 }
 
-.media_section div img {
+.imgButton,.media_section div img,.media_section div video {
     height: 400px;
     width: 100%;
     border-radius: 20px;
     object-fit: cover;
-}
-
-.media_section div video {
-    height: 400px;
-    width: 100%;
-    border-radius: 20px;
-    object-fit: cover;
+    border: none;
+    background-color: white;
 }
 
 .media_section div h2 {

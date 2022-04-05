@@ -24,14 +24,14 @@ function photographerFactory(data) {
 }
 
 function photographerPhotoFactory(data) {
-    const {portrait} = data;
+    const {name,portrait} = data;
 
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOMPhoto() {
         const article = document.createElement('article');
         article.innerHTML = `
-            <img src="${picture}" alt="">
+            <img src="${picture}" aria-label="${name}" alt="${name}">
         `;
 
         return (article);
@@ -53,6 +53,7 @@ function photographerInfosFactory(data) {
         </p>
         <p>${tagline}</p>
         `;
+        article.ariaLabel=name;
 
         return (article);
     }

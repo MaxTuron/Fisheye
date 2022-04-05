@@ -53,6 +53,10 @@ h1 {
     cursor: pointer;
 }
 
+:focus{
+    color: #901C1C;
+}
+
 @media (max-width: 470px){
     header {
         display: flex;

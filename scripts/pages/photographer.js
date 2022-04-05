@@ -73,7 +73,6 @@ async function displayMedia(media) {
         }
     });
     totalLikes.innerHTML = compteurLikes;
-
 }
 
 async function addLike(id) {
@@ -111,6 +110,7 @@ async function sortPopularity(){
     let {newMedia} = await getData();
     let mediaSection = document.querySelector(".media_section");
 
+
     //Fonction qui compare les likes
     function compareLikes(a, b) {
         return b.likes - a.likes;
@@ -122,6 +122,15 @@ async function sortPopularity(){
     //Affiche les médias dans le nouvel ordre
     displayMedia(newMedia);
 }
+
+let popButton = document.getElementById("popularity");
+
+popButton.addEventListener("keyup", function (e){
+    if (e.key === "Enter"){
+        document.getElementById("popularity").click();
+    }
+    console.log("ça marche")
+})
 
 async function sortDate(){
     let {newMedia} = await getData();

@@ -9,11 +9,11 @@
     <title>Fisheye - photographe </title>
 </head>
 <body>
-<header>
+<header aria-label="Header">
     <a href="index.html"><img src="assets/images/logo.png" alt="imgLogo Fisheye" class="logo"/></a>
 </header>
 
-<main id="main">
+<main id="main" aria-label="Main">
     <div class="photograph-header">
         <div class="photographer_info">
         </div>
@@ -21,9 +21,9 @@
     <div class="tri_section">
         <p>Triez par : </p>
         <select name="tri" class="other_button">
-            <option id="popularity" onclick="sortPopularity()">Popularité</option>
-            <option id="date" onclick="sortDate()">Date</option>
-            <option id="title" onclick="sortTitle()">Titre</option>
+            <option id="popularity" aria-label="PopularitySort" onclick="sortPopularity()">Popularité</option>
+            <option id="date" aria-label="DateSort" onclick="sortDate()">Date</option>
+            <option id="title" aria-label="TitleSort" onclick="sortTitle()">Titre</option>
         </select>
     </div>
 
@@ -31,13 +31,13 @@
     <div class="likes_section"></div>
 
     <div class="photographer_box">
-        <span class="spanLikes"> <p class="totalLikes"></p> <img src="assets/icons/coeurNoir.svg" alt="" class="img_coeur coeurPhotographer"></span>
+        <span class="spanLikes"><p class="totalLikes"></p><img src="assets/icons/coeurNoir.svg" alt="LikeNoir" class="img_coeur coeurPhotographer"></span>
         <p class="prixPhoto"></p>
     </div>
 
 </main>
-<div id="contact_modal">
-    <div class="modal_message" aria-hidden="true" role="form">
+<div id="contact_modal" role="form">
+    <div class="modal_message" aria-hidden="true">
         <header>
             <h2>Contactez-moi</h2>
             <img src="assets/icons/close.svg"  alt="" onclick="closeModal()"/>
@@ -76,6 +76,7 @@
 <script src="scripts/pages/photographer.js"></script>
 <script src="scripts/utils/contactForm.js"></script>
 <script src="scripts/utils/lightbox.js"></script>
+
 
 </body>
 </html>
