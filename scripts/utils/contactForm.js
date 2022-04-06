@@ -9,15 +9,15 @@ form.addEventListener('submit', function (event) {
 
 function displayModal() {
     modal.style.display = "block";
+    document.getElementById("first").focus();
 }
 
+//Ferme la modale au click sur le bouton
 function closeModal() {
     modal.style.display = "none";
 }
 
-
 function validate() {
-
     //Déclaration et récupération des variables et des regex
     let firstName = document.getElementById("first").value,
         lastName = document.getElementById("last").value,
@@ -85,11 +85,18 @@ function validate() {
     if (firstNameValid && lastNameValid && emailValid && messageValid) {
         closeModal();
         reset();
+        console.log("Prenom: "+firstName, "- Nom: "+lastName, "- Email: "+email, "- Message: "+message)
     }
 }
-
 
 //Fonction pour réinitialiser le formulaire
 function reset() {
     document.getElementById("form").reset();
 }
+
+//Permet de fermer la modale dans toute la page
+window.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeModal()
+    }
+});

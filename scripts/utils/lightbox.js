@@ -14,10 +14,23 @@ function openModalLightbox(numeroPhoto) {
         }
     }
 }
+
+//Fermeture de la modale partout sur la page
+window.addEventListener("keydown", event => {
+    let i;
+    let images = document.getElementsByClassName("mySlides");
+    if (event.key === "Escape") {
+        for (i=1; i<images.length;i++) {
+            closeModalLightbox(i);
+        }
+    }
+});
+
 //Fermeture modale
 function closeModalLightbox(numeroPhoto) {
     document.getElementById("myModal"+numeroPhoto).style.display = "none";
 }
+
 
 //Déclaration de l'index
 let imagesIndex = 1;
@@ -66,9 +79,6 @@ async function openModalKey(event,numeroPhoto){
 async function modalKeyboard(event, numeroPhoto){
     let nextMedia = numeroPhoto+1;
     let previousMedia = numeroPhoto-1;
-    if (event.key === "Escape") {
-        closeModalLightbox(numeroPhoto);
-    }
     if (event.key === "ArrowLeft") {
         openModalLightbox(previousMedia);
         currentMedia(previousMedia);

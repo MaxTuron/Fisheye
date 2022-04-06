@@ -13,8 +13,10 @@ function mediaFactory(data, numeroPhoto) {
         //Si image est undefined, c'est que le média est une vidéo
         if (image === undefined) {
             //On écris le code HTML suivant
-            div.innerHTML = ` 
-             <video  onkeydown="openModalKey(event,${numeroPhoto})" src="${videos}" aria-label="video" poster="${videos}" class="hover-shadow imgButton" onclick="openModalLightbox(${numeroPhoto});currentMedia(${numeroPhoto})"></video> 
+            div.innerHTML = `
+             <video numeroPhoto="${numeroPhoto}" onkeydown="openModalKey(event,${numeroPhoto})" onclick="openModalLightbox(${numeroPhoto});currentMedia(${numeroPhoto})" aria-label="${title}" class="hover-shadow imgButton">
+                 <source src="${videos}" type="video/mp4">
+             </video>
              <h2 class="titre_media">${title}
              <div>
                 <button class="addLikes" data-id="${id}" onclick="addLike(${mediaID})">${likes}</button>
@@ -26,7 +28,7 @@ function mediaFactory(data, numeroPhoto) {
                     <span class="close cursor" aria-label="Close dialog" onclick="closeModalLightbox(${numeroPhoto})">X</span>
                     <div class="modal-content">
                         <div class="mySlides" aria-label="image closeup view" role="dialog">
-                            <video class="img_lightbox" controls>
+                            <video onkeydown="modalKeyboard(event,${numeroPhoto});" class="img_lightbox" controls>
                                 <source src="${videos}" type="video/mp4">
                             </video>
                             <p>${title}</p>
@@ -43,7 +45,7 @@ function mediaFactory(data, numeroPhoto) {
         } else {
             //On écris le code HTML suivant
             div.innerHTML = `
-             <button tabindex="0" onkeydown="openModalKey(event,${numeroPhoto})" class="imgButton"><img src="${picture}" alt="${title}" class="hover-shadow" onclick="openModalLightbox(${numeroPhoto});currentMedia(${numeroPhoto})"></button>
+             <button numeroPhoto="${numeroPhoto}" tabindex="0" onkeydown="openModalKey(event,${numeroPhoto})" class="imgButton"><img src="${picture}" alt="${title}" class="hover-shadow" onclick="openModalLightbox(${numeroPhoto});currentMedia(${numeroPhoto})"></button>
              <h2 class="titre_media">${title}
              <div>
                 <button tabindex="0" class="addLikes" data-id="${id}" onclick="addLike(${mediaID})" role="button">${likes}</button>

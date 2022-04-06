@@ -120,17 +120,8 @@ async function sortPopularity(){
     //Vide les médias déjà presents
     mediaSection.innerHTML=``;
     //Affiche les médias dans le nouvel ordre
-    displayMedia(newMedia);
+    await displayMedia(newMedia);
 }
-
-let popButton = document.getElementById("popularity");
-
-popButton.addEventListener("keyup", function (e){
-    if (e.key === "Enter"){
-        document.getElementById("popularity").click();
-    }
-    console.log("ça marche")
-})
 
 async function sortDate(){
     let {newMedia} = await getData();
@@ -145,7 +136,7 @@ async function sortDate(){
     //Vide les médias déjà presents
     mediaSection.innerHTML=``;
     //Affiche les médias dans le nouvel ordre
-    displayMedia(newMedia);
+    await displayMedia(newMedia);
 }
 
 async function sortTitle() {
@@ -162,8 +153,22 @@ async function sortTitle() {
     //Vide les médias déjà presents
     mediaSection.innerHTML=``;
     //Affiche les médias dans le nouvel ordre
-    displayMedia(newMedia);
+    await displayMedia(newMedia);
 }
+
+//FOnction de tri clavier/souris
+let selectTri = document.getElementById('tri');
+
+selectTri.addEventListener("change", event =>{
+    console.log(selectTri.value);
+    if (selectTri.value === "Popularité"){
+        sortPopularity();
+    }else if(selectTri.value === "Date"){
+        sortDate()
+    }else {
+        sortTitle()
+    }
+})
 
 async function init() {
     // Récupères les datas des photographes

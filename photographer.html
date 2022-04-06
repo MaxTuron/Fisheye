@@ -4,7 +4,6 @@
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <script src="https://code.jquery.com/jquery-latest.js"></script>
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
 </head>
@@ -20,10 +19,10 @@
     </div>
     <div class="tri_section">
         <p>Triez par : </p>
-        <select name="tri" class="other_button">
-            <option id="popularity" aria-label="PopularitySort" onclick="sortPopularity()">Popularité</option>
-            <option id="date" aria-label="DateSort" onclick="sortDate()">Date</option>
-            <option id="title" aria-label="TitleSort" onclick="sortTitle()">Titre</option>
+        <select name="tri" id="tri" class="other_button">
+            <option selected="selected" id="popularity" aria-label="PopularitySort">Popularité</option>
+            <option id="date" aria-label="DateSort" >Date</option>
+            <option id="title" aria-label="TitleSort" >Titre</option>
         </select>
     </div>
 
@@ -40,7 +39,7 @@
     <div class="modal_message" aria-hidden="true">
         <header>
             <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg"  alt="" onclick="closeModal()"/>
+            <img src="assets/icons/close.svg"  alt="closeBtn" onclick="closeModal()"/>
         </header>
         <form name="reserve" action="index.html" id="form" method="get" onsubmit="return validate();">
 
@@ -52,18 +51,18 @@
 
             <div class="formData">
                 <label for="last">Nom</label><br>
-                <input class="text-control"  type="text" id="last" name="last"/><br>
+                <input   class="text-control"  type="text" id="last" name="last"/><br>
                 <span id="lastNameError" class="error"></span>
             </div>
 
             <div class="formData">
                 <label for="email">E-mail</label><br>
-                <input class="text-control"  type="email" id="email" name="email"/><br>
+                <input   class="text-control"  type="email" id="email" name="email"/><br>
                 <span id="emailError" class="error"></span>
             </div>
             <div>
                 <label for="message">Votre message</label>
-                <input class="text-control"  type="text" id="message" name="message"/><br>
+                <input   class="text-control"  type="text" id="message" name="message"/><br>
                 <span id="messageError" class="error"></span>
             </div>
             <button class="other_button">Envoyer</button>
