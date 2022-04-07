@@ -61,7 +61,7 @@ function photographerInfosFactory(data) {
     function getButtonContact() {
         const article = document.createElement('article');
         article.innerHTML = `
-            <button class="contact_button" tabindex="0" onclick="displayModal()">Contactez-moi</button>
+            <button aria-label="Contact Me" class="contact_button" tabindex="0" onclick="displayModal()">Contactez-moi</button>
         `;
 
         return (article);

@@ -18,9 +18,9 @@ function openModalLightbox(numeroPhoto) {
 //Fermeture de la modale partout sur la page
 window.addEventListener("keydown", event => {
     let i;
-    let images = document.getElementsByClassName("mySlides");
+    let media = document.getElementsByClassName("mySlides");
     if (event.key === "Escape") {
-        for (i=1; i<images.length;i++) {
+        for (i = 1; i < media.length; i++) {
             closeModalLightbox(i);
         }
     }

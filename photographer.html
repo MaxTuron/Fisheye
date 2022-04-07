@@ -3,13 +3,14 @@
 <head>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
 </head>
 <body>
 <header aria-label="Header">
-    <a href="index.html"><img src="assets/images/logo.png" alt="imgLogo Fisheye" class="logo"/></a>
+    <a href="index.html"><img src="assets/images/logo.png" alt="Fisheye Home Page" class="logo"/></a>
 </header>
 
 <main id="main" aria-label="Main">
@@ -20,9 +21,11 @@
     <div class="tri_section">
         <p>Triez par : </p>
         <select name="tri" id="tri" class="other_button">
-            <option selected="selected" id="popularity" aria-label="PopularitySort">Popularité</option>
-            <option id="date" aria-label="DateSort" >Date</option>
-            <option id="title" aria-label="TitleSort" >Titre</option>
+            <option selected="selected" id="popularity">Popularité</option>
+            <option class="separation" disabled>────────</option>
+            <option id="date">Date</option>
+            <option class="separation" disabled>────────</option>
+            <option id="title">Titre</option>
         </select>
     </div>
 
@@ -45,24 +48,24 @@
 
             <div class="formData">
                 <label for="first">Prénom</label><br>
-                <input class="text-control" type="text" id="first" name="first"/><br>
+                <input type="text" id="first" name="first"/><br>
                 <span id="firstNameError" class="error"></span>
             </div>
 
             <div class="formData">
                 <label for="last">Nom</label><br>
-                <input   class="text-control"  type="text" id="last" name="last"/><br>
+                <input type="text" id="last" name="last"/><br>
                 <span id="lastNameError" class="error"></span>
             </div>
 
             <div class="formData">
                 <label for="email">E-mail</label><br>
-                <input   class="text-control"  type="email" id="email" name="email"/><br>
+                <input type="email" id="email" name="email"/><br>
                 <span id="emailError" class="error"></span>
             </div>
             <div>
                 <label for="message">Votre message</label>
-                <input   class="text-control"  type="text" id="message" name="message"/><br>
+                <input type="text" id="message" name="message"/><br>
                 <span id="messageError" class="error"></span>
             </div>
             <button class="other_button">Envoyer</button>

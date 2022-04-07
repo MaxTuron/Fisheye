@@ -177,6 +177,7 @@ async function init() {
     let {media} = await getData();
     displayHeader(photographers);
     displayMedia(media);
+    sortPopularity();
 }
 
 init();
