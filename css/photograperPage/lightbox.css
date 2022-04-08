@@ -56,8 +56,7 @@ body {
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover,.close:focus {
     color: #999;
     text-decoration: none;
     cursor: pointer;
@@ -72,8 +71,7 @@ body {
 }
 
 /* Next & previous buttons */
-.prev,
-.next {
+.prev,.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -96,8 +94,7 @@ body {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
+.prev:hover,.next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 

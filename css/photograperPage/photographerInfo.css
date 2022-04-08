@@ -54,7 +54,7 @@
     width: 202px;
     background-color: #D3573C;
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     right: 5%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
