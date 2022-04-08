@@ -1,16 +1,21 @@
+let photoActu = 0;
+
 //Ouverture modale
 function openModalLightbox(numeroPhoto) {
     let images = document.getElementsByClassName("mySlides");
     if (numeroPhoto > images.length) {
         document.getElementById("myModal" + 1).style.display = "block";
         document.getElementById("myModal" + 1).focus();
+        photoActu = numeroPhoto;
     } else {
         if (numeroPhoto < 1) {
             document.getElementById("myModal" + images.length).style.display = "block";
             document.getElementById("myModal" + images.length).focus();
+            photoActu = numeroPhoto;
         } else {
             document.getElementById("myModal" + numeroPhoto).style.display = "block";
             document.getElementById("myModal" + numeroPhoto).focus();
+            photoActu = numeroPhoto;
         }
     }
 }
@@ -24,6 +29,34 @@ window.addEventListener("keydown", event => {
             closeModalLightbox(i);
         }
     }
+    if (event.key === "ArrowLeft") {
+        if (photoActu <= 1) {
+            closeModalLightbox(photoActu+1);
+            photoActu = media.length
+            openModalLightbox(photoActu);
+            currentMedia(photoActu);
+        }else {
+            let previousPhoto = photoActu - 1;
+            closeModalLightbox(photoActu);
+            openModalLightbox(previousPhoto);
+            currentMedia(previousPhoto);
+            photoActu = previousPhoto;
+        }
+    }
+    if (event.key === "ArrowRight") {
+        if (photoActu === media.length) {
+            closeModalLightbox(photoActu);
+            photoActu = 1;
+            openModalLightbox(photoActu);
+            currentMedia(photoActu);
+        }else {
+            let nextPhoto = photoActu + 1;
+            closeModalLightbox(photoActu);
+            openModalLightbox(nextPhoto);
+            currentMedia(nextPhoto);
+            photoActu = nextPhoto;
+        }
+    }
 });
 
 //Fermeture modale
@@ -31,15 +64,12 @@ function closeModalLightbox(numeroPhoto) {
     document.getElementById("myModal"+numeroPhoto).style.display = "none";
 }
 
-
 //Déclaration de l'index
 let imagesIndex = 1;
-
 showImages(imagesIndex);
 
 //Fonction qui affiche l'image actuelle
 function currentMedia(numeroPhoto) {
-
     let images = document.getElementsByClassName("mySlides");
 
     if (numeroPhoto > images.length) {
@@ -73,20 +103,5 @@ async function openModalKey(event,numeroPhoto){
     if (event.key === "Enter") {
         openModalLightbox(numeroPhoto);
         currentMedia(numeroPhoto);
-    }
-}
-
-async function modalKeyboard(event, numeroPhoto){
-    let nextMedia = numeroPhoto+1;
-    let previousMedia = numeroPhoto-1;
-    if (event.key === "ArrowLeft") {
-        openModalLightbox(previousMedia);
-        currentMedia(previousMedia);
-        closeModalLightbox(numeroPhoto);
-    }
-    if (event.key === "ArrowRight") {
-        openModalLightbox(nextMedia);
-        currentMedia(nextMedia);
-        closeModalLightbox(numeroPhoto);
     }
 }
