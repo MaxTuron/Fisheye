@@ -30,26 +30,36 @@ async function getData() {
     }
 }
 
+//Affiche le header de la page photographe
 async function displayHeader(photographers) {
+    //On déclare ou doit être affiché le contenu
     let photographersSection = document.querySelector(".photographer_info");
     let prix = document.querySelector(".prixPhoto");
 
+    //Prix du photographe affiché en bas à droite
     let prixPhotographe = 0;
 
+    //Boucle qui parcourt tous les photographes
     photographers.forEach((photographer) => {
+        //Si l'id de l'url correspond à l'id d'un photographe alors on affiche ces infos
         if (photographer.id === IDphotographer) {
+
+            //On déclare quelle factory doit être utilisé
             let photographerModel = photographerInfosFactory(photographer);
             let photographerButtonModel = photographerInfosFactory(photographer);
             let photographerModelPhoto = photographerPhotoFactory(photographer);
 
+            //On utilise la fonction qui sert à afficher l'élément voulu
             let userCardDOM = photographerModel.getUserCardDOM();
-            let userButtonCardDOM = photographerButtonModel.getButtonContact();
-            let userCardDOMPhoto = photographerModelPhoto.getUserCardDOMPhoto();
+            let buttonDOM = photographerButtonModel.getButtonContact();
+            let photoDOM = photographerModelPhoto.getUserCardDOMPhoto();
 
+            //On affiche les informations dans photographersSection.
             photographersSection.appendChild(userCardDOM);
-            photographersSection.appendChild(userButtonCardDOM);
-            photographersSection.appendChild(userCardDOMPhoto);
+            photographersSection.appendChild(buttonDOM);
+            photographersSection.appendChild(photoDOM);
 
+            //On récupère le prix du photographe
             prixPhotographe = photographer.price;
         }
     });
